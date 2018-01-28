@@ -27,7 +27,7 @@
 function getDog(){
     var selectedDog = $('#selection').val();
     var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
-    $.getJSON( imgsite, function( result ) {
+    $.getJSON( 'https://dog.ceo/api/breed/bluetick/images/random', function( result ) {
       console.log("Made it into JSON function")
         $(".demo-image").html("<img src=" + result.message + ">");
     });
