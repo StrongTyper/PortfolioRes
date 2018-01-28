@@ -1,29 +1,36 @@
+
 <html>
-  <head>
-    <title>Portfolio and Resume</title>
-    <style>
-      *{
-        color:blue;
-        background-color:black;
-      }
-    </style>
-    <body>
-  <h1>This is a future webpage </h1>
-      <hr>
-      <p>Welcome to my WebApp. Never tell a student they can design the webApp however they want Dr.L.</p>
-      <a href src="http://knowyourmeme.com/memes/traps">
-        <img src="https://i.stack.imgur.com/8gQI6m.png" alt="Random lewd image" title="IT'S A TRAP!"/>
-      </a>
-      <br/>
-      <a href src="http://knowyourmeme.com/memes/lewd"><b><i><u>DANGER! LEWD ZONE!</b></i></u></a>
-      <br/>
-      <p>Favorite Memes</p>
-      <ol>
-        <li>Raptor Jesus</li>
-        <li>Pepe</li>
-        <li>Traps</li>
-        <li>Do You Know Da Wae</li>
-        <li>good GvG :^)</li>
-    </body>
-  </head>
+
+<head>
+  <title>Get Stock Quote</title>
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <style>
+    body {
+       margin-top: 100px;
+       margin-left: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Enter Breed Type</h3>
+  <form class="pure-form">
+    <input type="text" class="pure-input-rounded" id="selection">
+    <button type="submit" class="pure-button" id="search">Search</button>
+  </form>
+
+  <script>
+  $('#search').click(function(e) {
+     e.preventDefault();
+     var breed = $('#selection').val();
+     $.getJSON('https://dog.ceo/api/breeds/' + breed + '/images/random', function(json){
+        $(".breed-image".html("<img src='" + json.message + "'>");
+     });
+  });
+  </script>
+</body>
 </html>
