@@ -4,20 +4,6 @@
 <head>
   <title>Find a Dog In Need</title>
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-  <script>
-  function getDog(){
-    var selectedDog = $('#selection').val();
-    var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
-    console.log(imgsite);
-    $.getJSON( imgsite, function(result) {
-        $("#dogimg").attr("src",result.message);
-    });
-  }
-
-  $("#search").click(function(){
-    getDog();
-  });      
-  </script>
   <style>
     body {
        margin-top: 100px;
@@ -33,5 +19,19 @@
     <button type="submit" class="pure-button" id="search">Search</button>
     <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
   </form>
+  <script>
+  function getDog(){
+    var selectedDog = $('#selection').val();
+    var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
+    console.log(imgsite);
+    $.getJSON( imgsite, function(result) {
+        $("#dogimg").attr("src",result.message);
+    });
+  }
+
+  $("#search").click(function(){
+    getDog();
+  });      
+  </script>
 </body>
 </html>
