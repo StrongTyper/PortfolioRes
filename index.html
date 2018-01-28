@@ -21,10 +21,7 @@
   </form>
   <script>
   function getDog(){
-    var selectedDog = $('#selection').val();
-    console.log(selectedDog);
-     $.getJSON( 'https://dog.ceo/api/breed/' + selectedDog +'/images/random', function(result) {
-       console.log("JSON RAN");
+     $.getJSON( 'https://dog.ceo/api/breed/bluetick/images/random', function(result) {
         $("#dogimg").attr("src",result.message);
     });      
   }
