@@ -7,7 +7,19 @@
   <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+  function getDog(){
+    var selectedDog = $('#selection').val();
+    var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
+    $.getJSON( imgsite, function(result) {
+        $("#dogimg").attr("src",result.message);
+    });
+  }
+
+  $("#search").click(function(){
+    getDog();
+  });      
+  </script>
   <style>
     body {
        margin-top: 100px;
@@ -23,18 +35,5 @@
     <button type="submit" class="pure-button" id="search">Search</button>
     <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
   </form>
-  <script>
-  function getDog(){
-    var selectedDog = $('#selection').val();
-    var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
-    $.getJSON( imgsite, function(result) {
-        $("#dogimg").attr("src",result.message);
-    });
-}
-
-$("#search").click(function(){
-    getDog();
-});      
-  </script>
 </body>
 </html>
