@@ -8,6 +8,7 @@
   function getDog(){
     var selectedDog = $('#selection').val();
     var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
+    console.log(imgsite);
     $.getJSON( imgsite, function(result) {
         $("#dogimg").attr("src",result.message);
     });
