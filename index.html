@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Get Stock Quote</title>
+  <title>Find a Dog In Need</title>
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
   <script
   src="https://code.jquery.com/jquery-3.3.1.js"
@@ -22,15 +22,19 @@
     <input type="text" class="pure-input-rounded" id="selection">
     <button type="submit" class="pure-button" id="search">Search</button>
   </form>
-
+  <div class = 'image'></div>
   <script>
-  $('#search').click(function(e) {
-     e.preventDefault();
-     var breed = $('#selection').val();
-     $.getJSON('https://dog.ceo/api/breeds/' + breed + '/images/random', function(json){
-        $(".breed-image".html("<img src='" + json.message + "'>");
-     });
-  });
+function getDog(){
+    var selectedDog = $('selection').val();
+    $.getJSON( 'https://dog.ceo/api/breeds/' + dogURL +'/images/random', function( result ) {
+
+        $(".image").html("<img src='" + result.message + "'>");
+    });
+}
+
+$('#search').click(function(){
+    getDog();
+});      
   </script>
 </body>
 </html>
