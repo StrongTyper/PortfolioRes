@@ -19,7 +19,7 @@
     <button id="search">Search</button>
     <br>
     <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
-    <textarea rows="1" cols="1">
+    <textarea id = "wikitxt" rows="1" cols="1">
     </textarea>
   </form>
   <script>
@@ -28,12 +28,21 @@
       status: ""
       message: ""
     };
+    var data2
+    {
+      title: ""
+      content: ""
+    }
      $('#search').click(function(e) {
      e.preventDefault();
      var breed = $('#selection').val();
      $.getJSON( 'https://dog.ceo/api/breed/' + breed + '/images/random', data, function(data,status) {
         console.log(status);
         $("#dogimg").attr("src",data.message);
+     });
+     $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'',data2 function(data2, status) {
+       console.log(status); 
+       $("#wikitxt").val(data2.message);
     });      
   });
   </script>
