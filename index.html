@@ -31,10 +31,10 @@
         $("#dogimg").attr("src",data.message);
      });
      $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'&callback=?', function(data,status) {
-       console.log(success);
+       console.log(status);
        var jsonString = JSON.stringify(data);
        console.log(jsonString);
-       $("#wikitxt").append(data.message);
+       $("#wikitxt").append(data);
     });      
   });
   </script>
