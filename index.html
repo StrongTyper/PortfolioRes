@@ -16,13 +16,21 @@
   <h3>Enter Breed Type</h3>
   <form class="pure-form">
     <input type="text" id="selection">
-    <button id="search" onclick="getDog()">Search</button>
+    <button id="search">Search</button>
     <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
   </form>
   <script>
+    var data
+    {
+      status: ""
+      message: ""
+    };
   function getDog(){
-     $.getJSON( 'https://dog.ceo/api/breed/bluetick/images/random', function(data,status) {
-      console.log(status);
+     $('#search').click(function(e) {
+     e.preventDefault();
+     var breed = $('#selection').val();
+     $.getJSON( 'https://dog.ceo/api/breed/' + breed + '/images/random', data, function(data,status) {
+        console.log(status);
         $("#dogimg").attr("src",data.message);
     });      
   }
