@@ -24,10 +24,10 @@
     <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
   </form>
   <script>
-function getDog(){
+  function getDog(){
     var selectedDog = $('#selection').val();
     var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
-    $.getJSON( imgsite, function( result ) {
+    $.getJSON( imgsite, function(result) {
         $("#dogimg").attr("src",result.message);
     });
 }
