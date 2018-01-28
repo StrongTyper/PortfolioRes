@@ -29,6 +29,7 @@ function getDog(){
     $.getJSON( 'https://dog.ceo/api/breed/' + selectedDog +'/images/random', function( result ) {
 
         $("image").html("<img src='" + result.message + "'>");
+      console.log(result.message);
     });
 }
 
