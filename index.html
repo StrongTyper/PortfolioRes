@@ -28,6 +28,7 @@
       status: ""
       message: ""
     };
+    var datat2
      $('#search').click(function(e) {
      e.preventDefault();
      var breed = $('#selection').val();
@@ -35,8 +36,8 @@
         console.log(status);
         $("#dogimg").attr("src",data.message);
      });
-     $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'callback=?', function(data2, status) {
-       console.log(status); 
+     $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'callback=?', function(result) {
+       console.log(result); 
        $("#wikitxt").val(data2.message);
     });      
   });
