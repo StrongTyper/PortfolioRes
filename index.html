@@ -23,23 +23,18 @@
     </textarea>
   </form>
   <script>
-    var data
-    {
-      status: ""
-      message: ""
-    };
-    var datat2
      $('#search').click(function(e) {
      e.preventDefault();
      var breed = $('#selection').val();
-     $.getJSON( 'https://dog.ceo/api/breed/' + breed + '/images/random', data, function(data,status) {
+     $.getJSON( 'https://dog.ceo/api/breed/' + breed + '/images/random', function(data,status) {
         console.log(status);
         $("#dogimg").attr("src",data.message);
      });
-     $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'&callback=?', function(result) {
-       var jsonString = JSON.stringify(result);
+     $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'&callback=?', function(data,status) {
+       console.log(success);
+       var jsonString = JSON.stringify(data);
        console.log(jsonString);
-       $("#wikitxt").append(result.message);
+       $("#wikitxt").append(data.message);
     });      
   });
   </script>
