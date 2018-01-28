@@ -21,8 +21,9 @@
   </form>
   <script>
   function getDog(){
-     $.getJSON( 'https://dog.ceo/api/breed/bluetick/images/random', function(result) {
-        $("#dogimg").attr("src",result.message);
+     $.getJSON( 'https://dog.ceo/api/breed/bluetick/images/random', function(data,status) {
+      console.log(status);
+        $("#dogimg").attr("src",data.message);
     });      
   }
   </script>
