@@ -21,8 +21,8 @@
   <form class="pure-form">
     <input type="text" class="pure-input-rounded" id="selection">
     <button type="submit" class="pure-button" id="search">Search</button>
+    <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
   </form>
-  <img id="dogimg" src="" alt="" />
   <script>
 function getDog(){
     var selectedDog = $('#selection').val();
@@ -32,7 +32,7 @@ function getDog(){
     });
 }
 
-$('#search').click(function(){
+$("#search").click(function(){
     getDog();
 });      
   </script>
