@@ -25,7 +25,7 @@
   <div class = 'image'></div>
   <script>
 function getDog(){
-    var selectedDog = $('selection').val();
+    var selectedDog = $('#selection').val();
     $.getJSON( 'https://dog.ceo/api/breed/' + selectedDog +'/images/random', function( result ) {
 
         $("image").html("<img src='" + result.message + "'>");
