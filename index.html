@@ -22,19 +22,17 @@
     <input type="text" class="pure-input-rounded" id="selection">
     <button type="submit" class="pure-button" id="search">Search</button>
   </form>
-  <div class="demo-image"></div>
+  <img id="dogimg" src="" alt="" />
   <script>
 function getDog(){
     var selectedDog = $('#selection').val();
     var imgsite = 'https://dog.ceo/api/breed/' + selectedDog +'/images/random';
-    $.getJSON( 'https://dog.ceo/api/breed/bluetick/images/random', function( result ) {
-      console.log("Made it into JSON function")
-        $(".demo-image").html("<img src=" + result.message + ">");
+    $.getJSON( imgsite, function( result ) {
+        $("#dogimg").attr("src",result.message);
     });
 }
 
 $('#search').click(function(){
-  console.log("click search works");
     getDog();
 });      
   </script>
