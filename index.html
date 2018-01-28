@@ -22,14 +22,13 @@
     <input type="text" class="pure-input-rounded" id="selection">
     <button type="submit" class="pure-button" id="search">Search</button>
   </form>
-  <div class = "image" id="dog-img"></div>
+  <img id="dog-img"/>
   <script>
 function getDog(){
     var selectedDog = $('#selection').val();
     $.getJSON( 'https://dog.ceo/api/breed/' + selectedDog +'/images/random', function( result ) {
 
-        $("#dog-img").html("<img src='" + result.message + "'>");
-      console.log('result.message');
+        $("#dog-img").attr("src","result.message");
     });
 }
 
