@@ -18,9 +18,12 @@
     <input type="text" id="selection">
     <button id="search">Search</button>
     <br>
+    <br>
     <img id="dogimg" src="http://njspca.org/wp-content/uploads/2014/09/NJSPCA_ADOPT-A-PET.png" alt="" />
-    <textarea id = "wikitxt" rows="1" cols="1">
-    </textarea>
+    <br>
+    <h3>Other meanings</h3>
+    <p id = "wikitxt">
+    </p>
   </form>
   <script>
      $('#search').click(function(e) {
@@ -28,16 +31,16 @@
      var breed = $('#selection').val();
      $.getJSON( 'https://dog.ceo/api/breed/' + breed + '/images/random', function(data,status) {
         console.log(status);
+        var jsonString = JSON.stringify(data);
+        console.log(jsonString);
         $("#dogimg").attr("src",data.message);
      });
      $.getJSON('https://en.wikipedia.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&formatversion=2&titles=' + breed +'&callback=?', function(data,status) {
        console.log(status);
-       var jsonString = JSON.stringify(data);
-       console.log(data.content);
-       $("#wikitxt").append(data.content);
-    });      
+       $("#wikitxt").text(data.query.pages[0].revisions[0].content);
+    });
   });
   </script>
 </body>
-  
+
 </html>
